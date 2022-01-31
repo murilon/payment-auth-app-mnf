@@ -113,12 +113,21 @@ class ExampleTransactionAuthApp extends Component {
         )}
 
         {!loading && (
-          <button
+          <><button
             id="payment-app-cancel"
             className={styles.buttonDanger}
             onClick={this.cancelTransaction}>
             Cancelar
           </button>
+
+            <button
+              id="payment-app-parsed"
+              className={styles.button}
+              onClick={this.getParsedPayload}>
+              Parsed Info
+            </button></>
+
+
         )}
       </div>
     )
