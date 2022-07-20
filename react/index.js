@@ -25,7 +25,7 @@ class ExampleTransactionAuthApp extends Component {
     $(window).trigger('removePaymentLoading.vtex')
   }
 
-  respondTransaction = status => {
+  respondTransaction = (status) => {
     $(window).trigger('transactionValidation.vtex', [status])
   }
 
@@ -34,13 +34,13 @@ class ExampleTransactionAuthApp extends Component {
     grecaptcha.ready(() => {
       grecaptcha.render(this.divContainer.current, {
         sitekey: '6Lel9UweAAAAAB-IZKhzE48Cd6CVIB1Zd461dyjv', //Replace with site key
-        theme: 'dark',
+        theme: 'light',
         callback: this.onVerify,
       })
     })
   }
 
-  onVerify = e => {
+  onVerify = (e) => {
     const parsedPayload = JSON.parse(this.props.appPayload)
     this.setState({ loading: true })
 
@@ -102,10 +102,10 @@ class ExampleTransactionAuthApp extends Component {
             </div>
             <div className="g-recaptcha" ref={this.divContainer}></div>
             <button
-              id="payment-app-confirm"
-              className={styles.buttonSuccess}
-              onClick={this.confirmTransation}>
-              Confirmar
+              id="payment-app-cancel"
+              className={styles.buttonDanger}
+              onClick={this.cancelTransaction}>
+              Cancelar
             </button>
           </Fragment>
         ) : (
@@ -113,21 +113,21 @@ class ExampleTransactionAuthApp extends Component {
         )}
 
         {!loading && (
-          <><button
-            id="payment-app-cancel"
-            className={styles.buttonDanger}
-            onClick={this.cancelTransaction}>
-            Cancelar
-          </button>
+          <>
+            <button
+              id="payment-app-cancel"
+              className={styles.buttonDanger}
+              onClick={this.cancelTransaction}>
+              Cancelar
+            </button>
 
             <button
               id="payment-app-parsed"
               className={styles.button}
               onClick={this.getParsedPayload}>
               Parsed Info
-            </button></>
-
-
+            </button>
+          </>
         )}
       </div>
     )

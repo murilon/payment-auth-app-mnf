@@ -1,7 +1,7 @@
 {
   "name": "payment-auth-app-mnf",
   "vendor": "murilofaria",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "title": "Example Payment Authentication App",
   "description": "Example Payment Authentication App",
   "defaultLocale": "en",
