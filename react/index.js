@@ -101,12 +101,6 @@ class ExampleTransactionAuthApp extends Component {
               <img src="https://murilofaria.vteximg.com.br/arquivos/frame.png"></img>
             </div>
             <div className="g-recaptcha" ref={this.divContainer}></div>
-            <button
-              id="payment-app-cancel"
-              className={styles.buttonDanger}
-              onClick={this.cancelTransaction}>
-              Cancelar
-            </button>
           </Fragment>
         ) : (
           <h2>Carregando...</h2>
